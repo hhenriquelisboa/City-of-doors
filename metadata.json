@@ -1,0 +1,8 @@
+{
+  "name": "Cartógrafo RPG - Mapa Interativo de RPG",
+  "description": "Mapa interativo completo para RPG de mesa com névoa de guerra, pontos de interesse, modo mestre, régua de distância e rolador de dados.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
