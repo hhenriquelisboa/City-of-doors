@@ -10,7 +10,8 @@ import {
   CloudSun,
   Flame,
   DoorOpen,
-  Eye
+  Eye,
+  Share2
 } from 'lucide-react';
 import { MapPreset } from '../types/rpg';
 
@@ -30,6 +31,7 @@ interface HeaderProps {
   onOpenDice: () => void;
   onOpenPortals: () => void;
   onOpenStreetView: () => void;
+  onOpenShare: () => void;
   onExportStandaloneHtml: () => void;
   onUploadCustomMap: (file: File) => void;
 }
@@ -50,6 +52,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenDice,
   onOpenPortals,
   onOpenStreetView,
+  onOpenShare,
   onExportStandaloneHtml,
   onUploadCustomMap
 }) => {
@@ -196,6 +199,16 @@ export const Header: React.FC<HeaderProps> = ({
         >
           <Shield className={`w-3.5 h-3.5 ${isGmMode ? 'text-red-400' : 'text-stone-400'}`} />
           <span>{isGmMode ? 'Mestre (GM)' : 'Jogador'}</span>
+        </button>
+
+        {/* Share Button */}
+        <button
+          onClick={onOpenShare}
+          className="px-2.5 py-1 text-xs font-semibold text-stone-200 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-md transition-colors whitespace-nowrap shrink-0 flex items-center gap-1.5 cursor-pointer"
+          title="Ver opções de compartilhamento (Link ou HTML offline)"
+        >
+          <Share2 className="w-3.5 h-3.5 text-amber-400" />
+          <span>Compartilhar</span>
         </button>
 
         {/* Primary CTA: Standalone HTML Export */}

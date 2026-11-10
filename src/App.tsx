@@ -29,6 +29,7 @@ import { AtmosphereSelector } from './components/AtmosphereSelector';
 import { WeatherOverlay } from './components/WeatherOverlay';
 import { PortalGuideModal } from './components/PortalGuideModal';
 import { StreetPerspectiveModal } from './components/StreetPerspectiveModal';
+import { ShareModal } from './components/ShareModal';
 import { sound } from './utils/audio';
 import { generateStandaloneHtml } from './utils/standaloneHtmlGenerator';
 
@@ -70,6 +71,7 @@ export default function App() {
   const [isWeatherOpen, setIsWeatherOpen] = useState(false);
   const [isPortalsOpen, setIsPortalsOpen] = useState(false);
   const [isStreetViewOpen, setIsStreetViewOpen] = useState(false);
+  const [isShareOpen, setIsShareOpen] = useState(false);
 
   // Fog Canvas Ref
   const fogRef = useRef<HTMLCanvasElement | null>(null);
@@ -318,6 +320,7 @@ export default function App() {
         onOpenDice={() => setIsDiceOpen(true)}
         onOpenPortals={() => setIsPortalsOpen(true)}
         onOpenStreetView={() => setIsStreetViewOpen(true)}
+        onOpenShare={() => setIsShareOpen(true)}
         onExportStandaloneHtml={handleExportStandaloneHtml}
         onUploadCustomMap={handleUploadCustomMap}
       />
@@ -485,6 +488,12 @@ export default function App() {
           imageUrl={currentPreset.streetViewUrl}
         />
       )}
+
+      <ShareModal
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
+        onDownloadHtml={handleExportStandaloneHtml}
+      />
     </div>
   );
 }
